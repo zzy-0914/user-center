@@ -22,7 +22,7 @@ public class BusinessException extends RuntimeException{
     public BusinessException(ErrorCode errorCode,String description){
         super(errorCode.getMessage());
         this.code = errorCode.getCode();
-        this.description = errorCode.getDescription();
+        this.description = description;
     }
 
     public int getCode() {

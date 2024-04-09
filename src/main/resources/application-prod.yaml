@@ -2,11 +2,25 @@ spring:
   # DataSource Config
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
-    url: 'jdbc:mysql://8.138.132.63:3306/user_center'
-    username: zzy
+    url: 'jdbc:mysql://8.138.132.63:3306/user_center_plus'
+    username: zzy0914
     password: 88888888
   # session 失效时间
   session:
     timeout: 86400
+    store-type: redis
+    #  redis配置
+  redis:
+    port: 6379
+    host: 8.138.132.63
+    database: 1
+    password: 88888888
 server:
-  address: 0.0.0.0
+  port: 8080
+  servlet:
+    context-path: /api
+    session:
+      cookie:
+        domain: 8.138.132.63
+        same-site: lax
+        secure: false

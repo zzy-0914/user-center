@@ -2,8 +2,8 @@ package com.zzy.usercenter.service;
 
 import com.baomidou.mybatisplus.extension.service.IService;
 import com.zzy.usercenter.model.domain.User;
-
 import javax.servlet.http.HttpServletRequest;
+import java.util.List;
 
 /**
 * @author ASUS
@@ -11,6 +11,8 @@ import javax.servlet.http.HttpServletRequest;
 * @createDate 2024-03-09 23:10:40
 */
 public interface UserService extends IService<User> {
+    Integer updateUser(User user,User loginUser);
+
     /**
      * 用户注册
      * @param userAccount 账户
@@ -31,4 +33,16 @@ public interface UserService extends IService<User> {
     User getSafetyUser(User user);
 
     int userLogout(HttpServletRequest request);
+
+
+    List<User> searchUserByTags(List<String> tags);
+
+    User getLoginUser(HttpServletRequest request);
+
+    boolean isAdmin(HttpServletRequest request);
+
+    boolean isAdmin(User user);
+
+
+    List<User> matchUsers(long num, User user);
 }

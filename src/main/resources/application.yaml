@@ -3,9 +3,20 @@ spring:
     name: user-center
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://localhost:3306/zzy
-    username: zzy
+    url: 'jdbc:mysql://8.138.132.63:3306/user_center_plus'
+    username: zzy0914
     password: 88888888
+  mvc:
+    pathmatch:
+      matching-strategy: ANT_PATH_MATCHER
+#  redis配置
+  redis:
+    port: 6379
+    host: localhost
+    database: 2
+#    从redis中读取session
+  session:
+    store-type: redis
 server:
   port: 8080
   servlet:
@@ -15,8 +26,10 @@ server:
 mybatis-plus:
   configuration:
     map-underscore-to-camel-case: false
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl #控制台输出sql语句
   global-config:
     db-config:
       logic-delete-field: isDelete # 全局逻辑删除的实体字段名(since 3.3.0,配置后可以忽略不配置步骤2)
       logic-delete-value: 1 # 逻辑已删除值(默认为 1)
       logic-not-delete-value: 0 # 逻辑未删除值(默认为 0)
+

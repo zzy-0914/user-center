@@ -1,24 +1,17 @@
-package com.zzy.usercenter.model.domain;
+package com.zzy.usercenter.model.domain.request;
 
-import com.baomidou.mybatisplus.annotation.*;
 import lombok.Data;
 
 import java.io.Serializable;
 import java.util.Date;
 
-/**
- * 用户实体
- *
- * @author <a href="https://github.com/liyupi">程序员鱼皮</a>
- * @from <a href="https://yupi.icu">编程导航知识星球</a>
- */
-@TableName(value = "user")
 @Data
-public class User implements Serializable {
+public class UserVO implements Serializable {
+
+    private static final long serialVersionUID = -5215605236092576978L;
     /**
      * id
      */
-    @TableId(type = IdType.AUTO)
     private Long id;
 
     /**
@@ -42,11 +35,6 @@ public class User implements Serializable {
     private Integer gender;
 
     /**
-     * 密码
-     */
-    private String userPassword;
-
-    /**
      * 电话
      */
     private String phone;
@@ -55,6 +43,11 @@ public class User implements Serializable {
      * 邮箱
      */
     private String email;
+
+    /**
+     * 标签列表 json
+     */
+    private String tags;
 
     /**
      * 状态 0 - 正常
@@ -71,14 +64,14 @@ public class User implements Serializable {
      */
     private Date updateTime;
 
-    private Integer userRole;
     /**
-     * 是否删除
+     * 用户角色 0 - 普通用户 1 - 管理员
      */
-    @TableLogic
-    private Integer isDelete;
+    private Integer userRole;
 
+    /**
+     * 星球编号
+     */
     private String planetCode;
 
 }
-

@@ -13,4 +13,9 @@ public class ResultUtils {
     public static BaseResponse error(int  errorCode,String message) {
         return new BaseResponse<>(errorCode,message);
     }
+
+    public static BaseResponse error(int code, String message, String description) {
+
+        return new BaseResponse<>(code,message,description);
+    }
 }
